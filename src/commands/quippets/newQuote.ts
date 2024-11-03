@@ -18,7 +18,8 @@ newQuoteScene.command('back', replyAndLeave('Cancelled quote creation.'))
 
 newQuoteScene.on(message('text'), async ctx => {
   const quote = await parseQuote({ text: ctx.message.text })
-  await saveQuote({ ...quote, userId: ctx.user.id })
+  const quoteWithUser = { ...quote, userId: ctx.user.id }
+  await saveQuote(quoteWithUser)
   return replyAndLeave(`Quote saved!`)(ctx)
 })
 
@@ -30,8 +31,8 @@ newQuoteScene.on(message('photo'), async ctx => {
 
   const fileUrl = await ctx.telegram.getFileLink(photo.file_id)
   const quote = await parseQuote({ imageURL: fileUrl.href })
-
-  await saveQuote({ ...quote, userId: ctx.user.id })
+  const quoteWithUser = { ...quote, userId: ctx.user.id }
+  await saveQuote(quoteWithUser)
   return replyAndLeave(`Quote saved!`)(ctx)
 })
 

@@ -2,7 +2,13 @@
   "repository": "https://github.com/vercel/examples.git",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "webhook": "dotenv -e .env.prod npx ts-node scripts/telegramWebhook.ts",
+    "telegram:set": "ts-node scripts/telegramWebhook.ts set",
+    "telegram:get": "ts-node scripts/telegramWebhook.ts get"
+  },
   "dependencies": {
+    "axios": "^1.7.7",
     "dotenv": "^16.4.5",
     "dotenv-cli": "^7.4.2",
     "moment-timezone": "^0.5.46",
