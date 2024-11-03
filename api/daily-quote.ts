@@ -22,7 +22,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       console.log('Sending message to user:', user)
       const quotes = await sampleQuotesByUser(user.id, QUOTE_SAMPLE_SIZE)
       const quotesMessage = quotes.map(formatQuote).join('\n\n---\n\n')
-      await quippetBot.telegram.sendMessage(user.telegramId.toString(), quotesMessage)
+      await quippetBot.telegram.sendMessage(user.telegramId, quotesMessage)
     }
     return res.json('Success')
   } catch (e) {
