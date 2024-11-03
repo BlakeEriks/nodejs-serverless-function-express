@@ -1,12 +1,12 @@
 import { Markup, Scenes, session, Telegraf } from 'telegraf'
 import { message } from 'telegraf/filters'
-import { HABIT_COMMANDS, HABIT_SCENES } from '../src/commands/habits'
-import { REMINDER_COMMANDS, REMINDER_SCENES } from '../src/commands/reminders'
-import { TIMEZONE_COMMANDS, TIMEZONE_SCENES } from '../src/commands/timezone'
-import attachHabits from '../src/middlewares/attachHabits'
-import attachUser from '../src/middlewares/attachUser'
-import saveMessage from '../src/middlewares/saveMessage'
-import { HabitContext } from '../src/types'
+import { HABIT_COMMANDS, HABIT_SCENES } from './commands/habits'
+import { REMINDER_COMMANDS, REMINDER_SCENES } from './commands/reminders'
+import { TIMEZONE_COMMANDS, TIMEZONE_SCENES } from './commands/timezone'
+import attachHabits from './middlewares/attachHabits'
+import attachUser from './middlewares/attachUser'
+import saveMessage from './middlewares/saveMessage'
+import { HabitContext } from './types'
 
 const commandGroups = [
   { name: 'Habits', commands: HABIT_COMMANDS },

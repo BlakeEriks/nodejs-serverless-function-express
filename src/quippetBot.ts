@@ -1,8 +1,8 @@
 import { Markup, Scenes, session, Telegraf } from 'telegraf'
 import { message } from 'telegraf/filters'
-import { QUOTE_COMMANDS, QUOTE_SCENES } from '../src/commands/quippets/index.ts'
-import { QuippetContext } from '../src/types'
+import { QUOTE_COMMANDS, QUOTE_SCENES } from './commands/quippets/index.ts'
 import attachUser from './middlewares/attachUser'
+import { QuippetContext } from './types'
 
 const commandGroups = [
   { name: 'Quotes', commands: QUOTE_COMMANDS },
