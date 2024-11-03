@@ -1,6 +1,6 @@
 import { Markup, Scenes, session, Telegraf } from 'telegraf'
 import { message } from 'telegraf/filters'
-import { QUOTE_COMMANDS, QUOTE_SCENES } from './commands/quippets/index.ts'
+import { QUOTE_COMMANDS, QUOTE_SCENES } from './commands/quippets'
 import attachUser from './middlewares/attachUser'
 import { QuippetContext } from './types'
 
