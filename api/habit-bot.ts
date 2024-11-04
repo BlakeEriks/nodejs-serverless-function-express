@@ -13,12 +13,3 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return new Response('Error processing update', { status: 500 })
   }
 }
-
-// export default function handler(req: VercelRequest, res: VercelResponse) {
-//   const { name = 'World' } = req.query
-//   return res.json({
-//     message: `Hello ${name}!`,
-//   })
-// }
-
-// export default botHandleUpdate(habitBot)

@@ -3,11 +3,26 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "dev": "dotenv -e .env.dev npx nodemon",
     "webhook": "dotenv -e .env.prod npx ts-node scripts/telegramWebhook.ts",
-    "telegram:set": "ts-node scripts/telegramWebhook.ts set",
-    "telegram:get": "ts-node scripts/telegramWebhook.ts get"
+    "telegram:set": "dotenv -e .env.prod tsx scripts/telegramWebhook.ts set",
+    "telegram:get": "dotenv -e .env.prod tsx scripts/telegramWebhook.ts get"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "tsx src/index.ts",
+    "ext": "ts, js, mts, mjs"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.15",
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
     "dotenv-cli": "^7.4.2",
@@ -16,6 +31,7 @@
     "prisma-db": "github:BlakeEriks/prisma-db",
     "telegraf": "^4.16.3",
     "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.19.2",
     "zod": "^3.23.8"
   },
   "devDependencies": {

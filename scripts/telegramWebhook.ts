@@ -14,7 +14,7 @@ if (!bot || !BOTS.includes(bot)) {
 }
 
 const formatBotURL = (bot: string) => {
-  return `${process.env.NETLIFY_SERVER_URL}/${bot}-bot`
+  return `${process.env.WEBHOOK_SERVER_URL}/${bot}-bot`
 }
 
 async function setWebhook(botToken: string, webhookUrl: string) {
@@ -45,8 +45,8 @@ if (command === 'get') {
 } else if (command === 'set') {
   const bot = process.argv[3]
 
-  if (!process.env.NETLIFY_SERVER_URL) {
-    throw new Error('NETLIFY_SERVER_URL is required')
+  if (!process.env.WEBHOOK_SERVER_URL) {
+    throw new Error('WEBHOOK_SERVER_URL is required')
   }
   const webhookUrl = formatBotURL(bot)
   setWebhook(botToken, webhookUrl)

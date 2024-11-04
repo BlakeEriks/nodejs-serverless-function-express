@@ -1,8 +1,9 @@
 import { HabitCommand } from '../../types'
 import { enterScene } from '../../util/telegraf'
+import { NEW_BOOK_SCENE, newBookScene } from './newBook'
 import { NEW_QUOTE_SCENE, newQuoteScene } from './newQuote'
 
-export const QUOTE_SCENES = [newQuoteScene]
+export const QUOTE_SCENES = [newQuoteScene, newBookScene]
 
 export const QUOTE_COMMANDS: HabitCommand[] = [
   // {
@@ -15,6 +16,12 @@ export const QUOTE_COMMANDS: HabitCommand[] = [
     description: 'Add a new quote to the database',
     action: enterScene(NEW_QUOTE_SCENE),
   },
+  {
+    name: 'add_book',
+    description: 'Add a new book to the reading list',
+    action: enterScene(NEW_BOOK_SCENE),
+  },
+
   // {
   //   name: 'remove_habit',
   //   description: 'Remove a habit you are tracking',
